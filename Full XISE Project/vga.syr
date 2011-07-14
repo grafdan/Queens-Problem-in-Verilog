@@ -1,0 +1,673 @@
+Release 13.1 - xst O.40d (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.77 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.77 secs
+ 
+--> Reading design: vga.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "vga.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "vga"
+Output Format                      : NGC
+Target Device                      : xc3s200-4-ft256
+
+---- Source Options
+Top Module Name                    : vga
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "queens.v" in library work
+Compiling verilog file "video_clk.v" in library work
+Module <queens> compiled
+Compiling verilog file "queenController.v" in library work
+Module <video_clk> compiled
+Compiling verilog file "vga.v" in library work
+Module <queenController> compiled
+Module <vga> compiled
+No errors in compilation
+Analysis of file <"vga.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <vga> in library <work> with parameters.
+	HBP = "0000110000"
+	HD = "1010000000"
+	HFP = "0000010000"
+	HS = "0001100000"
+	VBP = "0000100001"
+	VD = "0111100000"
+	VFP = "0000001010"
+	VS = "0000000010"
+
+Analyzing hierarchy for module <video_clk> in library <work>.
+
+Analyzing hierarchy for module <queenController> in library <work>.
+
+Analyzing hierarchy for module <queens> in library <work> with parameters.
+	N = "00000000000000000000000000011111"
+	N2 = "00000000000000000000000000111111"
+	logN = "00000000000000000000000000000100"
+	logN2 = "00000000000000000000000000000101"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <vga>.
+	HBP = 10'b0000110000
+	HD = 10'b1010000000
+	HFP = 10'b0000010000
+	HS = 10'b0001100000
+	VBP = 10'b0000100001
+	VD = 10'b0111100000
+	VFP = 10'b0000001010
+	VS = 10'b0000000010
+INFO:Xst:1432 - Contents of array <result> may be accessed with a negative index, causing simulation mismatch.
+Module <vga> is correct for synthesis.
+ 
+Analyzing module <video_clk> in library <work>.
+Module <video_clk> is correct for synthesis.
+ 
+Analyzing module <queenController> in library <work>.
+Module <queenController> is correct for synthesis.
+ 
+Analyzing module <queens> in library <work>.
+	N = 32'sb00000000000000000000000000011111
+	N2 = 32'sb00000000000000000000000000111111
+	logN = 32'sb00000000000000000000000000000100
+	logN2 = 32'sb00000000000000000000000000000101
+Module <queens> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <video_clk>.
+    Related source file is "video_clk.v".
+    Found 1-bit register for signal <clk_count>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <video_clk> synthesized.
+
+
+Synthesizing Unit <queens>.
+    Related source file is "queens.v".
+WARNING:Xst:653 - Signal <first_solution<31:24>> is used but never assigned. This sourceless signal will be automatically connected to value 00000.
+    Found 32-bit register for signal <result>.
+    Found 1-bit 32-to-1 multiplexer for signal <$varindex0000> created at line 34.
+    Found 1-bit 64-to-1 multiplexer for signal <$varindex0001> created at line 34.
+    Found 1-bit 64-to-1 multiplexer for signal <$varindex0002> created at line 34.
+    Found 5-bit 32-to-1 multiplexer for signal <$varindex0003> created at line 102.
+    Found 5-bit 32-to-1 multiplexer for signal <$varindex0004> created at line 102.
+    Found 5-bit comparator equal for signal <backward_needed$cmp_eq0000> created at line 31.
+    Found 5-bit register for signal <column>.
+    Found 5-bit 32-to-1 multiplexer for signal <currow>.
+    Found 5-bit adder carry out for signal <D1_check$addsub0000>.
+    Found 5-bit adder carry out for signal <D1_index$addsub0000> created at line 53.
+    Found 64-bit register for signal <D1used>.
+    Found 6-bit subtractor for signal <D2_check>.
+    Found 5-bit adder carry out for signal <D2_check$addsub0001> created at line 33.
+    Found 6-bit subtractor for signal <D2_index$addsub0000> created at line 54.
+    Found 5-bit adder carry out for signal <D2_index$addsub0001> created at line 54.
+    Found 64-bit register for signal <D2used>.
+    Found 5-bit subtractor for signal <edit_row$addsub0000> created at line 49.
+    Found 5-bit 32-to-1 multiplexer for signal <edit_row$varindex0000> created at line 49.
+    Found 1-bit register for signal <finished>.
+    Found 120-bit register for signal <first_solution<23:0>>.
+    Found 1-bit register for signal <first_solution_found>.
+    Found 5-bit addsub for signal <next_column$share0000> created at line 39.
+    Found 5-bit adder for signal <next_currow$addsub0000> created at line 38.
+    Found 32-bit adder for signal <next_result$addsub0000> created at line 37.
+    Found 160-bit register for signal <row>.
+    Found 32-bit register for signal <Rused>.
+    Found 5-bit comparator equal for signal <solution_found>.
+    Summary:
+	inferred 479 D-type flip-flop(s).
+	inferred  10 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred  23 Multiplexer(s).
+Unit <queens> synthesized.
+
+
+Synthesizing Unit <queenController>.
+    Related source file is "queenController.v".
+Unit <queenController> synthesized.
+
+
+Synthesizing Unit <vga>.
+    Related source file is "vga.v".
+WARNING:Xst:647 - Input <buttons<2:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <resultx<31:9>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <resultx<3:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <dot<3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <boardy<9>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <boardy<3:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <boardx<9>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <boardx<3:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <hsync>.
+    Found 1-bit register for signal <vsync>.
+    Found 10-bit comparator greatequal for signal <boardenable$cmp_le0000> created at line 86.
+    Found 10-bit comparator greatequal for signal <boardenable$cmp_le0001> created at line 86.
+    Found 5-bit comparator lessequal for signal <boardenable$cmp_le0002> created at line 86.
+    Found 10-bit comparator less for signal <boardenable$cmp_lt0000> created at line 86.
+    Found 10-bit comparator less for signal <boardenable$cmp_lt0001> created at line 86.
+    Found 5-bit comparator less for signal <boardenable$cmp_lt0002> created at line 86.
+    Found 1-bit xor2 for signal <boardparity>.
+    Found 5-bit comparator equal for signal <boardset>.
+    Found 10-bit subtractor for signal <boardx>.
+    Found 10-bit subtractor for signal <boardy>.
+    Found 5-bit adder for signal <by>.
+    Found 10-bit comparator greater for signal <dot$cmp_gt0000> created at line 97.
+    Found 10-bit comparator less for signal <dot$cmp_lt0000> created at line 97.
+    Found 10-bit comparator greatequal for signal <hsync$cmp_le0000> created at line 50.
+    Found 10-bit comparator less for signal <hsync$cmp_lt0000> created at line 50.
+    Found 10-bit adder for signal <old_posy_2$addsub0000> created at line 56.
+    Found 10-bit up counter for signal <posx>.
+    Found 10-bit register for signal <posy>.
+    Found 10-bit comparator greater for signal <resultline$cmp_gt0000> created at line 92.
+    Found 10-bit comparator less for signal <resultline$cmp_lt0000> created at line 92.
+    Found 1-bit 32-to-1 multiplexer for signal <resultstate>.
+    Found 12-bit subtractor for signal <resultx$sub0000> created at line 93.
+    Found 1-bit register for signal <syncing>.
+    Found 10-bit comparator greatequal for signal <syncing$cmp_ge0000> created at line 68.
+    Found 10-bit comparator greatequal for signal <syncing$cmp_ge0001> created at line 68.
+    Found 10-bit comparator greater for signal <vsync$cmp_lt0000> created at line 60.
+    Found 10-bit comparator less for signal <vsync$cmp_lt0001> created at line 60.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   7 Adder/Subtractor(s).
+	inferred  17 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <vga> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 17
+ 10-bit adder                                          : 2
+ 10-bit subtractor                                     : 2
+ 12-bit subtractor                                     : 1
+ 32-bit adder                                          : 1
+ 5-bit adder                                           : 2
+ 5-bit adder carry out                                 : 4
+ 5-bit addsub                                          : 1
+ 5-bit subtractor                                      : 1
+ 6-bit adder                                           : 1
+ 6-bit subtractor                                      : 2
+# Counters                                             : 1
+ 10-bit up counter                                     : 1
+# Registers                                            : 225
+ 1-bit register                                        : 166
+ 10-bit register                                       : 1
+ 32-bit register                                       : 1
+ 5-bit register                                        : 57
+# Comparators                                          : 19
+ 10-bit comparator greatequal                          : 5
+ 10-bit comparator greater                             : 3
+ 10-bit comparator less                                : 6
+ 5-bit comparator equal                                : 3
+ 5-bit comparator less                                 : 1
+ 5-bit comparator lessequal                            : 1
+# Multiplexers                                         : 8
+ 1-bit 32-to-1 multiplexer                             : 2
+ 1-bit 64-to-1 multiplexer                             : 2
+ 5-bit 32-to-1 multiplexer                             : 4
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 17
+ 10-bit adder                                          : 2
+ 32-bit adder                                          : 1
+ 5-bit adder                                           : 3
+ 5-bit adder carry out                                 : 4
+ 5-bit addsub                                          : 1
+ 5-bit subtractor                                      : 1
+ 6-bit subtractor                                      : 2
+ 9-bit subtractor                                      : 3
+# Counters                                             : 1
+ 10-bit up counter                                     : 1
+# Registers                                            : 493
+ Flip-Flops                                            : 493
+# Comparators                                          : 19
+ 10-bit comparator greatequal                          : 5
+ 10-bit comparator greater                             : 3
+ 10-bit comparator less                                : 6
+ 5-bit comparator equal                                : 3
+ 5-bit comparator less                                 : 1
+ 5-bit comparator lessequal                            : 1
+# Multiplexers                                         : 8
+ 1-bit 32-to-1 multiplexer                             : 2
+ 1-bit 64-to-1 multiplexer                             : 2
+ 5-bit 32-to-1 multiplexer                             : 4
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <vga> ...
+
+Optimizing unit <queens> ...
+
+Optimizing unit <queenController> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block vga, actual ratio is 32.
+FlipFlop iQueenController/queenSolver/column_0 has been replicated 5 time(s)
+FlipFlop iQueenController/queenSolver/column_1 has been replicated 3 time(s)
+FlipFlop iQueenController/queenSolver/column_2 has been replicated 2 time(s)
+FlipFlop iQueenController/queenSolver/column_3 has been replicated 1 time(s)
+FlipFlop iQueenController/queenSolver/column_4 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 515
+ Flip-Flops                                            : 515
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : vga.ngr
+Top Level Output File Name         : vga
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 26
+
+Cell Usage :
+# BELS                             : 1470
+#      GND                         : 1
+#      INV                         : 6
+#      LUT1                        : 31
+#      LUT2                        : 54
+#      LUT2_D                      : 1
+#      LUT2_L                      : 1
+#      LUT3                        : 482
+#      LUT3_D                      : 3
+#      LUT3_L                      : 3
+#      LUT4                        : 335
+#      LUT4_D                      : 43
+#      LUT4_L                      : 6
+#      MUXCY                       : 60
+#      MUXF5                       : 220
+#      MUXF6                       : 94
+#      MUXF7                       : 47
+#      MUXF8                       : 19
+#      VCC                         : 1
+#      XORCY                       : 63
+# FlipFlops/Latches                : 515
+#      FDC                         : 9
+#      FDCE                        : 459
+#      FDE                         : 40
+#      FDP                         : 2
+#      FDPE                        : 5
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 22
+#      IBUF                        : 9
+#      OBUF                        : 13
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-4 
+
+ Number of Slices:                      627  out of   1920    32%  
+ Number of Slice Flip Flops:            515  out of   3840    13%  
+ Number of 4 input LUTs:                965  out of   3840    25%  
+ Number of IOs:                          26
+ Number of bonded IOBs:                  23  out of    173    13%  
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+my_vclk/clk_count1                 | BUFG                   | 514   |
+clk                                | BUFGP                  | 1     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+buttons<3>                         | IBUF                   | 451   |
+reset                              | IBUF                   | 24    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 29.353ns (Maximum Frequency: 34.068MHz)
+   Minimum input arrival time before clock: 28.083ns
+   Maximum output required time after clock: 20.912ns
+   Maximum combinational path delay: 19.277ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'my_vclk/clk_count1'
+  Clock period: 29.353ns (frequency: 34.068MHz)
+  Total number of paths / destination ports: 7440641883 / 1017
+-------------------------------------------------------------------------
+Delay:               29.353ns (Levels of Logic = 22)
+  Source:            iQueenController/queenSolver/column_0_1 (FF)
+  Destination:       iQueenController/queenSolver/D1used_63 (FF)
+  Source Clock:      my_vclk/clk_count1 rising
+  Destination Clock: my_vclk/clk_count1 rising
+
+  Data Path: iQueenController/queenSolver/column_0_1 to iQueenController/queenSolver/D1used_63
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            16   0.720   1.305  iQueenController/queenSolver/column_0_1 (iQueenController/queenSolver/column_0_1)
+     LUT3:I2->O            1   0.551   0.000  iQueenController/queenSolver/Mmux_currow_10 (iQueenController/queenSolver/Mmux_currow_10)
+     MUXF5:I0->O           1   0.360   0.000  iQueenController/queenSolver/Mmux_currow_8_f5 (iQueenController/queenSolver/Mmux_currow_8_f5)
+     MUXF6:I0->O           1   0.342   0.000  iQueenController/queenSolver/Mmux_currow_6_f6 (iQueenController/queenSolver/Mmux_currow_6_f6)
+     MUXF7:I0->O           1   0.342   0.000  iQueenController/queenSolver/Mmux_currow_4_f7 (iQueenController/queenSolver/Mmux_currow_4_f7)
+     MUXF8:I0->O          93   0.342   2.229  iQueenController/queenSolver/Mmux_currow_2_f8 (iQueenController/queenSolver/Madd_next_currow_addsub0000_cy<0>)
+     LUT4:I3->O            4   0.551   0.985  iQueenController/queenSolver/Madd_D1_check_addsub0000_cy<1>11 (iQueenController/queenSolver/Madd_D1_check_addsub0000_cy<1>)
+     LUT3:I2->O            8   0.551   1.083  iQueenController/queenSolver/Madd_D1_check_addsub0000_xor<2>11 (iQueenController/queenSolver/D1_check<2>)
+     MUXF6:S->O            1   0.649   0.000  iQueenController/queenSolver/Mmux__varindex0001_9_f6_1 (iQueenController/queenSolver/Mmux__varindex0001_9_f62)
+     MUXF7:I1->O           1   0.342   0.869  iQueenController/queenSolver/Mmux__varindex0001_8_f7 (iQueenController/queenSolver/Mmux__varindex0001_8_f7)
+     LUT4:I2->O            8   0.551   1.151  iQueenController/queenSolver/forward_possible33 (iQueenController/queenSolver/forward_possible33)
+     LUT4:I2->O            2   0.551   0.903  iQueenController/queenSolver/forward_possible75_SW2 (N420)
+     LUT4:I3->O           24   0.551   1.797  iQueenController/queenSolver/next_column<1>1_1 (iQueenController/queenSolver/next_column<1>1)
+     MUXF5:S->O            1   0.621   0.000  iQueenController/queenSolver/Mmux_edit_row_varindex0000_8_f5_0 (iQueenController/queenSolver/Mmux_edit_row_varindex0000_8_f51)
+     MUXF6:I0->O           1   0.342   0.000  iQueenController/queenSolver/Mmux_edit_row_varindex0000_6_f6_0 (iQueenController/queenSolver/Mmux_edit_row_varindex0000_6_f61)
+     MUXF7:I0->O           1   0.342   0.000  iQueenController/queenSolver/Mmux_edit_row_varindex0000_4_f7_0 (iQueenController/queenSolver/Mmux_edit_row_varindex0000_4_f71)
+     MUXF8:I0->O           8   0.342   1.422  iQueenController/queenSolver/Mmux_edit_row_varindex0000_2_f8_0 (iQueenController/queenSolver/edit_row_varindex0000<1>)
+     LUT2_D:I0->LO         1   0.551   0.126  iQueenController/queenSolver/edit_row<2>_SW0 (N605)
+     LUT4:I3->O            1   0.551   0.801  iQueenController/queenSolver/edit_row<2> (iQueenController/queenSolver/edit_row<2>)
+     MUXCY:DI->O           1   0.889   0.000  iQueenController/queenSolver/Madd_D1_index_addsub0000_cy<2> (iQueenController/queenSolver/Madd_D1_index_addsub0000_cy<2>)
+     XORCY:CI->O          49   0.904   1.976  iQueenController/queenSolver/Madd_D1_index_addsub0000_xor<3> (iQueenController/queenSolver/D1_index_addsub0000<3>)
+     LUT4_D:I3->O         15   0.551   1.256  iQueenController/queenSolver/D1used_15_not00011_SW0 (N367)
+     LUT3:I2->O            1   0.551   0.801  iQueenController/queenSolver/D1used_14_not00011 (iQueenController/queenSolver/D1used_14_not0001)
+     FDCE:CE                   0.602          iQueenController/queenSolver/D1used_14
+    ----------------------------------------
+    Total                     29.353ns (12.649ns logic, 16.704ns route)
+                                       (43.1% logic, 56.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.152ns (frequency: 317.259MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               3.152ns (Levels of Logic = 1)
+  Source:            my_vclk/clk_count (FF)
+  Destination:       my_vclk/clk_count (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: my_vclk/clk_count to my_vclk/clk_count
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.720   0.877  my_vclk/clk_count (my_vclk/clk_count1)
+     INV:I->O              1   0.551   0.801  my_vclk/clk_count_not00011_INV_0 (my_vclk/clk_count_not0001)
+     FDC:D                     0.203          my_vclk/clk_count
+    ----------------------------------------
+    Total                      3.152ns (1.474ns logic, 1.678ns route)
+                                       (46.8% logic, 53.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'my_vclk/clk_count1'
+  Total number of paths / destination ports: 138070016 / 691
+-------------------------------------------------------------------------
+Offset:              28.083ns (Levels of Logic = 20)
+  Source:            switches<3> (PAD)
+  Destination:       iQueenController/queenSolver/D1used_63 (FF)
+  Destination Clock: my_vclk/clk_count1 rising
+
+  Data Path: switches<3> to iQueenController/queenSolver/D1used_63
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            10   0.821   1.473  switches_3_IBUF (switches_3_IBUF)
+     LUT2:I0->O            1   0.551   0.000  iQueenController/queenSolver/Madd_D2_check_addsub0001_lut<0> (iQueenController/queenSolver/Madd_D2_check_addsub0001_lut<0>)
+     XORCY:LI->O          37   0.622   2.221  iQueenController/queenSolver/Madd_D2_check_addsub0001_xor<0> (iQueenController/queenSolver/D2_check_addsub0001<0>)
+     LUT4:I0->O            1   0.551   0.827  iQueenController/queenSolver/Msub_D2_check_xor<2>11_SW1 (N418)
+     LUT4:I3->O            8   0.551   1.083  iQueenController/queenSolver/Msub_D2_check_xor<2>11 (iQueenController/queenSolver/D2_check<2>)
+     MUXF6:S->O            1   0.649   0.000  iQueenController/queenSolver/Mmux__varindex0002_7_f6 (iQueenController/queenSolver/Mmux__varindex0002_7_f6)
+     MUXF7:I1->O           1   0.342   0.000  iQueenController/queenSolver/Mmux__varindex0002_6_f7 (iQueenController/queenSolver/Mmux__varindex0002_6_f7)
+     MUXF8:I1->O           1   0.342   0.869  iQueenController/queenSolver/Mmux__varindex0002_5_f8 (iQueenController/queenSolver/Mmux__varindex0002_5_f8)
+     LUT4_D:I2->O          8   0.551   1.151  iQueenController/queenSolver/forward_possible75_SW0 (N319)
+     LUT4:I2->O            2   0.551   0.945  iQueenController/queenSolver/next_column<2>1_SW2 (N313)
+     LUT3:I2->O           12   0.551   1.118  iQueenController/queenSolver/next_column<2>1_1 (iQueenController/queenSolver/next_column<2>1)
+     MUXF6:S->O            1   0.649   0.000  iQueenController/queenSolver/Mmux_edit_row_varindex0000_6_f6_0 (iQueenController/queenSolver/Mmux_edit_row_varindex0000_6_f61)
+     MUXF7:I0->O           1   0.342   0.000  iQueenController/queenSolver/Mmux_edit_row_varindex0000_4_f7_0 (iQueenController/queenSolver/Mmux_edit_row_varindex0000_4_f71)
+     MUXF8:I0->O           8   0.342   1.422  iQueenController/queenSolver/Mmux_edit_row_varindex0000_2_f8_0 (iQueenController/queenSolver/edit_row_varindex0000<1>)
+     LUT2_D:I0->LO         1   0.551   0.126  iQueenController/queenSolver/edit_row<2>_SW0 (N605)
+     LUT4:I3->O            1   0.551   0.801  iQueenController/queenSolver/edit_row<2> (iQueenController/queenSolver/edit_row<2>)
+     MUXCY:DI->O           1   0.889   0.000  iQueenController/queenSolver/Madd_D1_index_addsub0000_cy<2> (iQueenController/queenSolver/Madd_D1_index_addsub0000_cy<2>)
+     XORCY:CI->O          49   0.904   1.976  iQueenController/queenSolver/Madd_D1_index_addsub0000_xor<3> (iQueenController/queenSolver/D1_index_addsub0000<3>)
+     LUT4_D:I3->O         15   0.551   1.256  iQueenController/queenSolver/D1used_15_not00011_SW0 (N367)
+     LUT3:I2->O            1   0.551   0.801  iQueenController/queenSolver/D1used_14_not00011 (iQueenController/queenSolver/D1used_14_not0001)
+     FDCE:CE                   0.602          iQueenController/queenSolver/D1used_14
+    ----------------------------------------
+    Total                     28.083ns (12.014ns logic, 16.069ns route)
+                                       (42.8% logic, 57.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'my_vclk/clk_count1'
+  Total number of paths / destination ports: 2840 / 13
+-------------------------------------------------------------------------
+Offset:              20.912ns (Levels of Logic = 10)
+  Source:            posy_5 (FF)
+  Destination:       green (PAD)
+  Source Clock:      my_vclk/clk_count1 rising
+
+  Data Path: posy_5 to green
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDPE:C->Q            20   0.720   1.884  posy_5 (posy_5)
+     LUT2:I0->O            2   0.551   1.216  resultline34 (N82)
+     LUT4:I0->O            1   0.551   0.000  resultline46_G (N544)
+     MUXF5:I1->O           2   0.360   1.072  resultline46 (resultline)
+     LUT3:I1->O            1   0.551   0.869  green2293_SW0 (N517)
+     LUT4:I2->O            1   0.551   0.996  green2293 (green2293)
+     LUT4:I1->O            1   0.551   0.869  green2332_SW0 (N523)
+     LUT4:I2->O            3   0.551   0.933  green2332 (N36)
+     LUT4:I3->O            1   0.551   1.140  green_SW0 (N17)
+     LUT4:I0->O            1   0.551   0.801  green (green_OBUF)
+     OBUF:I->O                 5.644          green_OBUF (green)
+    ----------------------------------------
+    Total                     20.912ns (11.132ns logic, 9.780ns route)
+                                       (53.2% logic, 46.8% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 99 / 11
+-------------------------------------------------------------------------
+Delay:               19.277ns (Levels of Logic = 10)
+  Source:            switches<4> (PAD)
+  Destination:       green (PAD)
+
+  Data Path: switches<4> to green
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   0.821   1.576  switches_4_IBUF (switches_4_IBUF)
+     LUT4:I0->O            1   0.551   0.000  green299_SW0_G (N590)
+     MUXF5:I1->O           1   0.360   1.140  green299_SW0 (N539)
+     LUT4:I0->O            1   0.551   0.996  green299 (green299)
+     LUT4:I1->O            1   0.551   1.140  green2154 (green2154)
+     LUT4:I0->O            1   0.551   0.869  green2332_SW0 (N523)
+     LUT4:I2->O            3   0.551   0.933  green2332 (N36)
+     LUT4:I3->O            1   0.551   1.140  green_SW0 (N17)
+     LUT4:I0->O            1   0.551   0.801  green (green_OBUF)
+     OBUF:I->O                 5.644          green_OBUF (green)
+    ----------------------------------------
+    Total                     19.277ns (10.682ns logic, 8.595ns route)
+                                       (55.4% logic, 44.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 90.00 secs
+Total CPU time to Xst completion: 89.80 secs
+ 
+--> 
+
+Total memory usage is 147208 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    9 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

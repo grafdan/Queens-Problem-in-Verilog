@@ -1,0 +1,737 @@
+--------------------------------------------------------------------------------
+Release 13.1 Trace  (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\13.1\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 4 -n
+3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf constraints.ucf
+
+Design file:              vga.ncd
+Physical constraint file: vga.pcf
+Device,package,speed:     xc3s200,ft256,-4 (PRODUCTION 1.39 2011-02-03)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: TS_global_timing = MAXDELAY FROM TIMEGRP "PADS" TO TIMEGRP 
+"PADS" 20 ns;
+
+ 99 paths analyzed, 11 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors)
+ Maximum delay is  17.449ns.
+--------------------------------------------------------------------------------
+
+Paths for end point green (T12.PAD), 25 paths
+--------------------------------------------------------------------------------
+Slack (slowest paths):  2.551ns (requirement - data path)
+  Source:               switches<3> (PAD)
+  Destination:          green (PAD)
+  Requirement:          20.000ns
+  Data Path Delay:      17.449ns (Levels of Logic = 9)
+
+  Maximum Data Path: switches<3> to green
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H13.I                Tiopi                 1.938   switches<3>
+                                                       switches<3>
+                                                       switches_3_IBUF
+    SLICE_X31Y19.F2      net (fanout=10)       2.487   switches_3_IBUF
+    SLICE_X31Y19.X       Tilo                  0.551   green244
+                                                       green244
+    SLICE_X30Y20.F1      net (fanout=1)        0.572   green244
+    SLICE_X30Y20.X       Tilo                  0.608   green299
+                                                       green299
+    SLICE_X28Y21.F1      net (fanout=1)        0.585   green299
+    SLICE_X28Y21.X       Tilo                  0.608   green2154
+                                                       green2154
+    SLICE_X29Y19.G1      net (fanout=1)        0.645   green2154
+    SLICE_X29Y19.Y       Tilo                  0.551   N36
+                                                       green2332_SW0
+    SLICE_X29Y19.F1      net (fanout=1)        0.552   N523
+    SLICE_X29Y19.X       Tilo                  0.551   N36
+                                                       green2332
+    SLICE_X29Y13.G3      net (fanout=3)        0.759   N36
+    SLICE_X29Y13.Y       Tilo                  0.551   green_OBUF
+                                                       green_SW0
+    SLICE_X29Y13.F3      net (fanout=1)        0.374   N17
+    SLICE_X29Y13.X       Tilo                  0.551   green_OBUF
+                                                       green
+    T12.O1               net (fanout=1)        1.204   green_OBUF
+    T12.PAD              Tioop                 4.362   green
+                                                       green_OBUF
+                                                       green
+    -------------------------------------------------  ---------------------------
+    Total                                     17.449ns (10.271ns logic, 7.178ns route)
+                                                       (58.9% logic, 41.1% route)
+
+--------------------------------------------------------------------------------
+Slack (slowest paths):  3.256ns (requirement - data path)
+  Source:               switches<3> (PAD)
+  Destination:          green (PAD)
+  Requirement:          20.000ns
+  Data Path Delay:      16.744ns (Levels of Logic = 9)
+
+  Maximum Data Path: switches<3> to green
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H13.I                Tiopi                 1.938   switches<3>
+                                                       switches<3>
+                                                       switches_3_IBUF
+    SLICE_X31Y20.F2      net (fanout=10)       1.466   switches_3_IBUF
+    SLICE_X31Y20.X       Tif5x                 0.911   N539
+                                                       green299_SW0_G
+                                                       green299_SW0
+    SLICE_X30Y20.F2      net (fanout=1)        0.528   N539
+    SLICE_X30Y20.X       Tilo                  0.608   green299
+                                                       green299
+    SLICE_X28Y21.F1      net (fanout=1)        0.585   green299
+    SLICE_X28Y21.X       Tilo                  0.608   green2154
+                                                       green2154
+    SLICE_X29Y19.G1      net (fanout=1)        0.645   green2154
+    SLICE_X29Y19.Y       Tilo                  0.551   N36
+                                                       green2332_SW0
+    SLICE_X29Y19.F1      net (fanout=1)        0.552   N523
+    SLICE_X29Y19.X       Tilo                  0.551   N36
+                                                       green2332
+    SLICE_X29Y13.G3      net (fanout=3)        0.759   N36
+    SLICE_X29Y13.Y       Tilo                  0.551   green_OBUF
+                                                       green_SW0
+    SLICE_X29Y13.F3      net (fanout=1)        0.374   N17
+    SLICE_X29Y13.X       Tilo                  0.551   green_OBUF
+                                                       green
+    T12.O1               net (fanout=1)        1.204   green_OBUF
+    T12.PAD              Tioop                 4.362   green
+                                                       green_OBUF
+                                                       green
+    -------------------------------------------------  ---------------------------
+    Total                                     16.744ns (10.631ns logic, 6.113ns route)
+                                                       (63.5% logic, 36.5% route)
+
+--------------------------------------------------------------------------------
+Slack (slowest paths):  3.309ns (requirement - data path)
+  Source:               switches<3> (PAD)
+  Destination:          green (PAD)
+  Requirement:          20.000ns
+  Data Path Delay:      16.691ns (Levels of Logic = 9)
+
+  Maximum Data Path: switches<3> to green
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H13.I                Tiopi                 1.938   switches<3>
+                                                       switches<3>
+                                                       switches_3_IBUF
+    SLICE_X31Y20.G2      net (fanout=10)       1.413   switches_3_IBUF
+    SLICE_X31Y20.X       Tif5x                 0.911   N539
+                                                       green299_SW0_F
+                                                       green299_SW0
+    SLICE_X30Y20.F2      net (fanout=1)        0.528   N539
+    SLICE_X30Y20.X       Tilo                  0.608   green299
+                                                       green299
+    SLICE_X28Y21.F1      net (fanout=1)        0.585   green299
+    SLICE_X28Y21.X       Tilo                  0.608   green2154
+                                                       green2154
+    SLICE_X29Y19.G1      net (fanout=1)        0.645   green2154
+    SLICE_X29Y19.Y       Tilo                  0.551   N36
+                                                       green2332_SW0
+    SLICE_X29Y19.F1      net (fanout=1)        0.552   N523
+    SLICE_X29Y19.X       Tilo                  0.551   N36
+                                                       green2332
+    SLICE_X29Y13.G3      net (fanout=3)        0.759   N36
+    SLICE_X29Y13.Y       Tilo                  0.551   green_OBUF
+                                                       green_SW0
+    SLICE_X29Y13.F3      net (fanout=1)        0.374   N17
+    SLICE_X29Y13.X       Tilo                  0.551   green_OBUF
+                                                       green
+    T12.O1               net (fanout=1)        1.204   green_OBUF
+    T12.PAD              Tioop                 4.362   green
+                                                       green_OBUF
+                                                       green
+    -------------------------------------------------  ---------------------------
+    Total                                     16.691ns (10.631ns logic, 6.060ns route)
+                                                       (63.7% logic, 36.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point red (R12.PAD), 25 paths
+--------------------------------------------------------------------------------
+Slack (slowest paths):  2.764ns (requirement - data path)
+  Source:               switches<3> (PAD)
+  Destination:          red (PAD)
+  Requirement:          20.000ns
+  Data Path Delay:      17.236ns (Levels of Logic = 8)
+
+  Maximum Data Path: switches<3> to red
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H13.I                Tiopi                 1.938   switches<3>
+                                                       switches<3>
+                                                       switches_3_IBUF
+    SLICE_X31Y19.F2      net (fanout=10)       2.487   switches_3_IBUF
+    SLICE_X31Y19.X       Tilo                  0.551   green244
+                                                       green244
+    SLICE_X30Y20.F1      net (fanout=1)        0.572   green244
+    SLICE_X30Y20.X       Tilo                  0.608   green299
+                                                       green299
+    SLICE_X28Y21.F1      net (fanout=1)        0.585   green299
+    SLICE_X28Y21.X       Tilo                  0.608   green2154
+                                                       green2154
+    SLICE_X29Y19.G1      net (fanout=1)        0.645   green2154
+    SLICE_X29Y19.Y       Tilo                  0.551   N36
+                                                       green2332_SW0
+    SLICE_X29Y19.F1      net (fanout=1)        0.552   N523
+    SLICE_X29Y19.X       Tilo                  0.551   N36
+                                                       green2332
+    SLICE_X26Y14.BX      net (fanout=3)        0.978   N36
+    SLICE_X26Y14.X       Tbxx                  0.621   red_OBUF
+                                                       red_f5
+    R12.O1               net (fanout=1)        1.627   red_OBUF
+    R12.PAD              Tioop                 4.362   red
+                                                       red_OBUF
+                                                       red
+    -------------------------------------------------  ---------------------------
+    Total                                     17.236ns (9.790ns logic, 7.446ns route)
+                                                       (56.8% logic, 43.2% route)
+
+--------------------------------------------------------------------------------
+Slack (slowest paths):  3.469ns (requirement - data path)
+  Source:               switches<3> (PAD)
+  Destination:          red (PAD)
+  Requirement:          20.000ns
+  Data Path Delay:      16.531ns (Levels of Logic = 8)
+
+  Maximum Data Path: switches<3> to red
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H13.I                Tiopi                 1.938   switches<3>
+                                                       switches<3>
+                                                       switches_3_IBUF
+    SLICE_X31Y20.F2      net (fanout=10)       1.466   switches_3_IBUF
+    SLICE_X31Y20.X       Tif5x                 0.911   N539
+                                                       green299_SW0_G
+                                                       green299_SW0
+    SLICE_X30Y20.F2      net (fanout=1)        0.528   N539
+    SLICE_X30Y20.X       Tilo                  0.608   green299
+                                                       green299
+    SLICE_X28Y21.F1      net (fanout=1)        0.585   green299
+    SLICE_X28Y21.X       Tilo                  0.608   green2154
+                                                       green2154
+    SLICE_X29Y19.G1      net (fanout=1)        0.645   green2154
+    SLICE_X29Y19.Y       Tilo                  0.551   N36
+                                                       green2332_SW0
+    SLICE_X29Y19.F1      net (fanout=1)        0.552   N523
+    SLICE_X29Y19.X       Tilo                  0.551   N36
+                                                       green2332
+    SLICE_X26Y14.BX      net (fanout=3)        0.978   N36
+    SLICE_X26Y14.X       Tbxx                  0.621   red_OBUF
+                                                       red_f5
+    R12.O1               net (fanout=1)        1.627   red_OBUF
+    R12.PAD              Tioop                 4.362   red
+                                                       red_OBUF
+                                                       red
+    -------------------------------------------------  ---------------------------
+    Total                                     16.531ns (10.150ns logic, 6.381ns route)
+                                                       (61.4% logic, 38.6% route)
+
+--------------------------------------------------------------------------------
+Slack (slowest paths):  3.522ns (requirement - data path)
+  Source:               switches<3> (PAD)
+  Destination:          red (PAD)
+  Requirement:          20.000ns
+  Data Path Delay:      16.478ns (Levels of Logic = 8)
+
+  Maximum Data Path: switches<3> to red
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H13.I                Tiopi                 1.938   switches<3>
+                                                       switches<3>
+                                                       switches_3_IBUF
+    SLICE_X31Y20.G2      net (fanout=10)       1.413   switches_3_IBUF
+    SLICE_X31Y20.X       Tif5x                 0.911   N539
+                                                       green299_SW0_F
+                                                       green299_SW0
+    SLICE_X30Y20.F2      net (fanout=1)        0.528   N539
+    SLICE_X30Y20.X       Tilo                  0.608   green299
+                                                       green299
+    SLICE_X28Y21.F1      net (fanout=1)        0.585   green299
+    SLICE_X28Y21.X       Tilo                  0.608   green2154
+                                                       green2154
+    SLICE_X29Y19.G1      net (fanout=1)        0.645   green2154
+    SLICE_X29Y19.Y       Tilo                  0.551   N36
+                                                       green2332_SW0
+    SLICE_X29Y19.F1      net (fanout=1)        0.552   N523
+    SLICE_X29Y19.X       Tilo                  0.551   N36
+                                                       green2332
+    SLICE_X26Y14.BX      net (fanout=3)        0.978   N36
+    SLICE_X26Y14.X       Tbxx                  0.621   red_OBUF
+                                                       red_f5
+    R12.O1               net (fanout=1)        1.627   red_OBUF
+    R12.PAD              Tioop                 4.362   red
+                                                       red_OBUF
+                                                       red
+    -------------------------------------------------  ---------------------------
+    Total                                     16.478ns (10.150ns logic, 6.328ns route)
+                                                       (61.6% logic, 38.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point blue (R11.PAD), 25 paths
+--------------------------------------------------------------------------------
+Slack (slowest paths):  3.674ns (requirement - data path)
+  Source:               switches<3> (PAD)
+  Destination:          blue (PAD)
+  Requirement:          20.000ns
+  Data Path Delay:      16.326ns (Levels of Logic = 8)
+
+  Maximum Data Path: switches<3> to blue
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H13.I                Tiopi                 1.938   switches<3>
+                                                       switches<3>
+                                                       switches_3_IBUF
+    SLICE_X31Y19.F2      net (fanout=10)       2.487   switches_3_IBUF
+    SLICE_X31Y19.X       Tilo                  0.551   green244
+                                                       green244
+    SLICE_X30Y20.F1      net (fanout=1)        0.572   green244
+    SLICE_X30Y20.X       Tilo                  0.608   green299
+                                                       green299
+    SLICE_X28Y21.F1      net (fanout=1)        0.585   green299
+    SLICE_X28Y21.X       Tilo                  0.608   green2154
+                                                       green2154
+    SLICE_X29Y19.G1      net (fanout=1)        0.645   green2154
+    SLICE_X29Y19.Y       Tilo                  0.551   N36
+                                                       green2332_SW0
+    SLICE_X29Y19.F1      net (fanout=1)        0.552   N523
+    SLICE_X29Y19.X       Tilo                  0.551   N36
+                                                       green2332
+    SLICE_X28Y13.F2      net (fanout=3)        0.846   N36
+    SLICE_X28Y13.X       Tilo                  0.608   blue_OBUF
+                                                       blue1
+    R11.O1               net (fanout=1)        0.862   blue_OBUF
+    R11.PAD              Tioop                 4.362   blue
+                                                       blue_OBUF
+                                                       blue
+    -------------------------------------------------  ---------------------------
+    Total                                     16.326ns (9.777ns logic, 6.549ns route)
+                                                       (59.9% logic, 40.1% route)
+
+--------------------------------------------------------------------------------
+Slack (slowest paths):  4.379ns (requirement - data path)
+  Source:               switches<3> (PAD)
+  Destination:          blue (PAD)
+  Requirement:          20.000ns
+  Data Path Delay:      15.621ns (Levels of Logic = 8)
+
+  Maximum Data Path: switches<3> to blue
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H13.I                Tiopi                 1.938   switches<3>
+                                                       switches<3>
+                                                       switches_3_IBUF
+    SLICE_X31Y20.F2      net (fanout=10)       1.466   switches_3_IBUF
+    SLICE_X31Y20.X       Tif5x                 0.911   N539
+                                                       green299_SW0_G
+                                                       green299_SW0
+    SLICE_X30Y20.F2      net (fanout=1)        0.528   N539
+    SLICE_X30Y20.X       Tilo                  0.608   green299
+                                                       green299
+    SLICE_X28Y21.F1      net (fanout=1)        0.585   green299
+    SLICE_X28Y21.X       Tilo                  0.608   green2154
+                                                       green2154
+    SLICE_X29Y19.G1      net (fanout=1)        0.645   green2154
+    SLICE_X29Y19.Y       Tilo                  0.551   N36
+                                                       green2332_SW0
+    SLICE_X29Y19.F1      net (fanout=1)        0.552   N523
+    SLICE_X29Y19.X       Tilo                  0.551   N36
+                                                       green2332
+    SLICE_X28Y13.F2      net (fanout=3)        0.846   N36
+    SLICE_X28Y13.X       Tilo                  0.608   blue_OBUF
+                                                       blue1
+    R11.O1               net (fanout=1)        0.862   blue_OBUF
+    R11.PAD              Tioop                 4.362   blue
+                                                       blue_OBUF
+                                                       blue
+    -------------------------------------------------  ---------------------------
+    Total                                     15.621ns (10.137ns logic, 5.484ns route)
+                                                       (64.9% logic, 35.1% route)
+
+--------------------------------------------------------------------------------
+Slack (slowest paths):  4.432ns (requirement - data path)
+  Source:               switches<3> (PAD)
+  Destination:          blue (PAD)
+  Requirement:          20.000ns
+  Data Path Delay:      15.568ns (Levels of Logic = 8)
+
+  Maximum Data Path: switches<3> to blue
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H13.I                Tiopi                 1.938   switches<3>
+                                                       switches<3>
+                                                       switches_3_IBUF
+    SLICE_X31Y20.G2      net (fanout=10)       1.413   switches_3_IBUF
+    SLICE_X31Y20.X       Tif5x                 0.911   N539
+                                                       green299_SW0_F
+                                                       green299_SW0
+    SLICE_X30Y20.F2      net (fanout=1)        0.528   N539
+    SLICE_X30Y20.X       Tilo                  0.608   green299
+                                                       green299
+    SLICE_X28Y21.F1      net (fanout=1)        0.585   green299
+    SLICE_X28Y21.X       Tilo                  0.608   green2154
+                                                       green2154
+    SLICE_X29Y19.G1      net (fanout=1)        0.645   green2154
+    SLICE_X29Y19.Y       Tilo                  0.551   N36
+                                                       green2332_SW0
+    SLICE_X29Y19.F1      net (fanout=1)        0.552   N523
+    SLICE_X29Y19.X       Tilo                  0.551   N36
+                                                       green2332
+    SLICE_X28Y13.F2      net (fanout=3)        0.846   N36
+    SLICE_X28Y13.X       Tilo                  0.608   blue_OBUF
+                                                       blue1
+    R11.O1               net (fanout=1)        0.862   blue_OBUF
+    R11.PAD              Tioop                 4.362   blue
+                                                       blue_OBUF
+                                                       blue
+    -------------------------------------------------  ---------------------------
+    Total                                     15.568ns (10.137ns logic, 5.431ns route)
+                                                       (65.1% logic, 34.9% route)
+
+--------------------------------------------------------------------------------
+
+Fastest Paths: TS_global_timing = MAXDELAY FROM TIMEGRP "PADS" TO TIMEGRP "PADS" 20 ns;
+--------------------------------------------------------------------------------
+
+Paths for end point LEDs<0> (K12.PAD), 3 paths
+--------------------------------------------------------------------------------
+Delay (hold path):      8.818ns (data path)
+  Source:               switches<2> (PAD)
+  Destination:          LEDs<0> (PAD)
+  Requirement:          0.000ns
+  Data Path Delay:      8.818ns (Levels of Logic = 3)
+
+  Minimum Data Path: switches<2> to LEDs<0>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H14.I                Tiopi                 1.550   switches<2>
+                                                       switches<2>
+                                                       switches_2_IBUF
+    SLICE_X36Y10.F2      net (fanout=16)       1.324   switches_2_IBUF
+    SLICE_X36Y10.X       Tif5x                 0.774   LEDs_0_OBUF
+                                                       iQueenController/outNum<0>31_G
+                                                       iQueenController/outNum<0>31
+    K12.O1               net (fanout=1)        1.100   LEDs_0_OBUF
+    K12.PAD              Tioop                 4.070   LEDs<0>
+                                                       LEDs_0_OBUF
+                                                       LEDs<0>
+    -------------------------------------------------  ---------------------------
+    Total                                      8.818ns (6.394ns logic, 2.424ns route)
+                                                       (72.5% logic, 27.5% route)
+
+--------------------------------------------------------------------------------
+Delay (hold path):      8.903ns (data path)
+  Source:               switches<2> (PAD)
+  Destination:          LEDs<0> (PAD)
+  Requirement:          0.000ns
+  Data Path Delay:      8.903ns (Levels of Logic = 3)
+
+  Minimum Data Path: switches<2> to LEDs<0>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H14.I                Tiopi                 1.550   switches<2>
+                                                       switches<2>
+                                                       switches_2_IBUF
+    SLICE_X36Y10.G2      net (fanout=16)       1.409   switches_2_IBUF
+    SLICE_X36Y10.X       Tif5x                 0.774   LEDs_0_OBUF
+                                                       iQueenController/outNum<0>31_F
+                                                       iQueenController/outNum<0>31
+    K12.O1               net (fanout=1)        1.100   LEDs_0_OBUF
+    K12.PAD              Tioop                 4.070   LEDs<0>
+                                                       LEDs_0_OBUF
+                                                       LEDs<0>
+    -------------------------------------------------  ---------------------------
+    Total                                      8.903ns (6.394ns logic, 2.509ns route)
+                                                       (71.8% logic, 28.2% route)
+
+--------------------------------------------------------------------------------
+Delay (hold path):      8.943ns (data path)
+  Source:               switches<1> (PAD)
+  Destination:          LEDs<0> (PAD)
+  Requirement:          0.000ns
+  Data Path Delay:      8.943ns (Levels of Logic = 3)
+
+  Minimum Data Path: switches<1> to LEDs<0>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    G12.I                Tiopi                 1.550   switches<1>
+                                                       switches<1>
+                                                       switches_1_IBUF
+    SLICE_X36Y10.BX      net (fanout=8)        1.726   switches_1_IBUF
+    SLICE_X36Y10.X       Tbxx                  0.497   LEDs_0_OBUF
+                                                       iQueenController/outNum<0>31
+    K12.O1               net (fanout=1)        1.100   LEDs_0_OBUF
+    K12.PAD              Tioop                 4.070   LEDs<0>
+                                                       LEDs_0_OBUF
+                                                       LEDs<0>
+    -------------------------------------------------  ---------------------------
+    Total                                      8.943ns (6.117ns logic, 2.826ns route)
+                                                       (68.4% logic, 31.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point LEDs<5> (N12.PAD), 3 paths
+--------------------------------------------------------------------------------
+Delay (hold path):      9.100ns (data path)
+  Source:               switches<2> (PAD)
+  Destination:          LEDs<5> (PAD)
+  Requirement:          0.000ns
+  Data Path Delay:      9.100ns (Levels of Logic = 3)
+
+  Minimum Data Path: switches<2> to LEDs<5>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H14.I                Tiopi                 1.550   switches<2>
+                                                       switches<2>
+                                                       switches_2_IBUF
+    SLICE_X35Y7.F3       net (fanout=16)       1.856   switches_2_IBUF
+    SLICE_X35Y7.X        Tif5x                 0.729   LEDs_5_OBUF
+                                                       iQueenController/outNum<5>31_G
+                                                       iQueenController/outNum<5>31
+    N12.O1               net (fanout=1)        0.895   LEDs_5_OBUF
+    N12.PAD              Tioop                 4.070   LEDs<5>
+                                                       LEDs_5_OBUF
+                                                       LEDs<5>
+    -------------------------------------------------  ---------------------------
+    Total                                      9.100ns (6.349ns logic, 2.751ns route)
+                                                       (69.8% logic, 30.2% route)
+
+--------------------------------------------------------------------------------
+Delay (hold path):      9.153ns (data path)
+  Source:               switches<2> (PAD)
+  Destination:          LEDs<5> (PAD)
+  Requirement:          0.000ns
+  Data Path Delay:      9.153ns (Levels of Logic = 3)
+
+  Minimum Data Path: switches<2> to LEDs<5>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H14.I                Tiopi                 1.550   switches<2>
+                                                       switches<2>
+                                                       switches_2_IBUF
+    SLICE_X35Y7.G3       net (fanout=16)       1.909   switches_2_IBUF
+    SLICE_X35Y7.X        Tif5x                 0.729   LEDs_5_OBUF
+                                                       iQueenController/outNum<5>31_F
+                                                       iQueenController/outNum<5>31
+    N12.O1               net (fanout=1)        0.895   LEDs_5_OBUF
+    N12.PAD              Tioop                 4.070   LEDs<5>
+                                                       LEDs_5_OBUF
+                                                       LEDs<5>
+    -------------------------------------------------  ---------------------------
+    Total                                      9.153ns (6.349ns logic, 2.804ns route)
+                                                       (69.4% logic, 30.6% route)
+
+--------------------------------------------------------------------------------
+Delay (hold path):      10.200ns (data path)
+  Source:               switches<1> (PAD)
+  Destination:          LEDs<5> (PAD)
+  Requirement:          0.000ns
+  Data Path Delay:      10.200ns (Levels of Logic = 3)
+
+  Minimum Data Path: switches<1> to LEDs<5>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    G12.I                Tiopi                 1.550   switches<1>
+                                                       switches<1>
+                                                       switches_1_IBUF
+    SLICE_X35Y7.BX       net (fanout=8)        3.188   switches_1_IBUF
+    SLICE_X35Y7.X        Tbxx                  0.497   LEDs_5_OBUF
+                                                       iQueenController/outNum<5>31
+    N12.O1               net (fanout=1)        0.895   LEDs_5_OBUF
+    N12.PAD              Tioop                 4.070   LEDs<5>
+                                                       LEDs_5_OBUF
+                                                       LEDs<5>
+    -------------------------------------------------  ---------------------------
+    Total                                     10.200ns (6.117ns logic, 4.083ns route)
+                                                       (60.0% logic, 40.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point LEDs<4> (P13.PAD), 3 paths
+--------------------------------------------------------------------------------
+Delay (hold path):      9.197ns (data path)
+  Source:               switches<2> (PAD)
+  Destination:          LEDs<4> (PAD)
+  Requirement:          0.000ns
+  Data Path Delay:      9.197ns (Levels of Logic = 3)
+
+  Minimum Data Path: switches<2> to LEDs<4>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H14.I                Tiopi                 1.550   switches<2>
+                                                       switches<2>
+                                                       switches_2_IBUF
+    SLICE_X35Y2.G3       net (fanout=16)       2.168   switches_2_IBUF
+    SLICE_X35Y2.X        Tif5x                 0.729   LEDs_4_OBUF
+                                                       iQueenController/outNum<4>31_F
+                                                       iQueenController/outNum<4>31
+    P13.O1               net (fanout=1)        0.680   LEDs_4_OBUF
+    P13.PAD              Tioop                 4.070   LEDs<4>
+                                                       LEDs_4_OBUF
+                                                       LEDs<4>
+    -------------------------------------------------  ---------------------------
+    Total                                      9.197ns (6.349ns logic, 2.848ns route)
+                                                       (69.0% logic, 31.0% route)
+
+--------------------------------------------------------------------------------
+Delay (hold path):      9.319ns (data path)
+  Source:               switches<2> (PAD)
+  Destination:          LEDs<4> (PAD)
+  Requirement:          0.000ns
+  Data Path Delay:      9.319ns (Levels of Logic = 3)
+
+  Minimum Data Path: switches<2> to LEDs<4>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H14.I                Tiopi                 1.550   switches<2>
+                                                       switches<2>
+                                                       switches_2_IBUF
+    SLICE_X35Y2.F2       net (fanout=16)       2.290   switches_2_IBUF
+    SLICE_X35Y2.X        Tif5x                 0.729   LEDs_4_OBUF
+                                                       iQueenController/outNum<4>31_G
+                                                       iQueenController/outNum<4>31
+    P13.O1               net (fanout=1)        0.680   LEDs_4_OBUF
+    P13.PAD              Tioop                 4.070   LEDs<4>
+                                                       LEDs_4_OBUF
+                                                       LEDs<4>
+    -------------------------------------------------  ---------------------------
+    Total                                      9.319ns (6.349ns logic, 2.970ns route)
+                                                       (68.1% logic, 31.9% route)
+
+--------------------------------------------------------------------------------
+Delay (hold path):      9.714ns (data path)
+  Source:               switches<1> (PAD)
+  Destination:          LEDs<4> (PAD)
+  Requirement:          0.000ns
+  Data Path Delay:      9.714ns (Levels of Logic = 3)
+
+  Minimum Data Path: switches<1> to LEDs<4>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    G12.I                Tiopi                 1.550   switches<1>
+                                                       switches<1>
+                                                       switches_1_IBUF
+    SLICE_X35Y2.BX       net (fanout=8)        2.917   switches_1_IBUF
+    SLICE_X35Y2.X        Tbxx                  0.497   LEDs_4_OBUF
+                                                       iQueenController/outNum<4>31
+    P13.O1               net (fanout=1)        0.680   LEDs_4_OBUF
+    P13.PAD              Tioop                 4.070   LEDs<4>
+                                                       LEDs_4_OBUF
+                                                       LEDs<4>
+    -------------------------------------------------  ---------------------------
+    Total                                      9.714ns (6.117ns logic, 3.597ns route)
+                                                       (63.0% logic, 37.0% route)
+
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+switches<1>    |LEDs<0>        |   10.453|
+switches<1>    |LEDs<1>        |   11.508|
+switches<1>    |LEDs<2>        |   11.467|
+switches<1>    |LEDs<3>        |   12.083|
+switches<1>    |LEDs<4>        |   11.417|
+switches<1>    |LEDs<5>        |   12.024|
+switches<1>    |LEDs<6>        |   11.714|
+switches<1>    |LEDs<7>        |   11.258|
+switches<2>    |LEDs<0>        |   10.405|
+switches<2>    |LEDs<1>        |   11.185|
+switches<2>    |LEDs<2>        |   11.467|
+switches<2>    |LEDs<3>        |   11.760|
+switches<2>    |LEDs<4>        |   10.923|
+switches<2>    |LEDs<5>        |   10.716|
+switches<2>    |LEDs<6>        |   11.090|
+switches<2>    |LEDs<7>        |   11.368|
+switches<3>    |blue           |   16.326|
+switches<3>    |green          |   17.449|
+switches<3>    |red            |   17.236|
+switches<4>    |blue           |   15.179|
+switches<4>    |green          |   16.302|
+switches<4>    |red            |   16.089|
+switches<5>    |blue           |   14.070|
+switches<5>    |green          |   15.193|
+switches<5>    |red            |   14.980|
+switches<6>    |blue           |   14.868|
+switches<6>    |green          |   15.991|
+switches<6>    |red            |   15.778|
+switches<7>    |blue           |   15.507|
+switches<7>    |green          |   16.630|
+switches<7>    |red            |   16.417|
+---------------+---------------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 99 paths, 0 nets, and 80 connections
+
+Design statistics:
+   Maximum path delay from/to any node:  17.449ns
+
+
+Analysis completed Sun May 15 20:04:19 2011 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 77 MB
+
+
+

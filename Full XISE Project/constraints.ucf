@@ -1,0 +1,33 @@
+
+NET "buttons[3]" LOC = "L14"; //knoepfe
+NET "buttons[2]" LOC = "L13";
+NET "buttons[1]" LOC = "M14";
+NET "buttons[0]" LOC = "M13";
+
+NET "switches[7]" LOC = "K13"; // Schalter
+NET "switches[6]" LOC = "K14";
+NET "switches[5]" LOC = "J13";
+NET "switches[4]" LOC = "J14";
+NET "switches[3]" LOC = "H13";
+NET "switches[2]" LOC = "H14";
+NET "switches[1]" LOC = "G12";
+NET "reset" LOC = "F12"; // Schalter ganz recht
+//VGA-pins
+NET "red" LOC = "R12";
+NET "green" LOC = "T12";
+NET "blue" LOC = "R11";
+NET "hsync" LOC = "R9";
+NET "vsync" LOC = "T10";
+
+NET "LEDs[7]" LOC = "P11"; //LED Anschlüsse
+NET "LEDs[6]" LOC = "P12";
+NET "LEDs[5]" LOC = "N12";
+NET "LEDs[4]" LOC = "P13";
+NET "LEDs[3]" LOC = "N14";
+NET "LEDs[2]" LOC = "L12";
+NET "LEDs[1]" LOC = "P14";
+NET "LEDs[0]" LOC = "K12";
+
+NET "clk" LOC = "T9";
+#Created by Constraints Editor (xc3s200-ft256-4) - 2011/05/15
+TIMESPEC TS_global_timing = FROM "PADS" TO "PADS" 20 ns;

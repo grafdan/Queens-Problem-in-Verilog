@@ -1,0 +1,517 @@
+Release 13.1 - xst O.40d (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.88 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.89 secs
+ 
+--> Reading design: queenController.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "queenController.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "queenController"
+Output Format                      : NGC
+Target Device                      : xc3s200-4-ft256
+
+---- Source Options
+Top Module Name                    : queenController
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../queen/queens.v" in library work
+Compiling verilog file "queenController.v" in library work
+Module <queens> compiled
+Module <queenController> compiled
+No errors in compilation
+Analysis of file <"queenController.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <queenController> in library <work>.
+
+Analyzing hierarchy for module <queens> in library <work> with parameters.
+	N = "00000000000000000000000000011111"
+	N2 = "00000000000000000000000000111111"
+	logN = "00000000000000000000000000000100"
+	logN2 = "00000000000000000000000000000101"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <queenController>.
+Module <queenController> is correct for synthesis.
+ 
+Analyzing module <queens> in library <work>.
+	N = 32'sb00000000000000000000000000011111
+	N2 = 32'sb00000000000000000000000000111111
+	logN = 32'sb00000000000000000000000000000100
+	logN2 = 32'sb00000000000000000000000000000101
+Module <queens> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <queens>.
+    Related source file is "../queen/queens.v".
+WARNING:Xst:646 - Signal <next_result<63:32>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 32-bit register for signal <result>.
+    Found 1-bit 32-to-1 multiplexer for signal <$varindex0000> created at line 29.
+    Found 1-bit 64-to-1 multiplexer for signal <$varindex0001> created at line 29.
+    Found 1-bit 64-to-1 multiplexer for signal <$varindex0002> created at line 29.
+    Found 5-bit comparator equal for signal <backward_needed$cmp_eq0000> created at line 26.
+    Found 5-bit register for signal <column>.
+    Found 5-bit 32-to-1 multiplexer for signal <currow>.
+    Found 5-bit adder carry out for signal <D1_check$addsub0000>.
+    Found 5-bit adder carry out for signal <D1_index$addsub0000> created at line 48.
+    Found 64-bit register for signal <D1used>.
+    Found 6-bit subtractor for signal <D2_check>.
+    Found 5-bit adder carry out for signal <D2_check$addsub0001> created at line 28.
+    Found 6-bit subtractor for signal <D2_index$addsub0000> created at line 49.
+    Found 5-bit adder carry out for signal <D2_index$addsub0001> created at line 49.
+    Found 64-bit register for signal <D2used>.
+    Found 5-bit subtractor for signal <edit_row$addsub0000> created at line 44.
+    Found 5-bit 32-to-1 multiplexer for signal <edit_row$varindex0000> created at line 44.
+    Found 1-bit register for signal <finished>.
+    Found 5-bit addsub for signal <next_column$share0000> created at line 34.
+    Found 5-bit adder for signal <next_currow$addsub0000> created at line 33.
+    Found 32-bit adder carry out for signal <next_result$addsub0000> created at line 32.
+    Found 160-bit register for signal <row>.
+    Found 32-bit register for signal <Rused>.
+    Found 5-bit comparator equal for signal <solution_found>.
+    Summary:
+	inferred 358 D-type flip-flop(s).
+	inferred  10 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred  13 Multiplexer(s).
+Unit <queens> synthesized.
+
+
+Synthesizing Unit <queenController>.
+    Related source file is "queenController.v".
+Unit <queenController> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 10
+ 32-bit adder carry out                                : 1
+ 5-bit adder                                           : 1
+ 5-bit adder carry out                                 : 4
+ 5-bit addsub                                          : 1
+ 5-bit subtractor                                      : 1
+ 6-bit subtractor                                      : 2
+# Registers                                            : 195
+ 1-bit register                                        : 161
+ 32-bit register                                       : 1
+ 5-bit register                                        : 33
+# Comparators                                          : 2
+ 5-bit comparator equal                                : 2
+# Multiplexers                                         : 5
+ 1-bit 32-to-1 multiplexer                             : 1
+ 1-bit 64-to-1 multiplexer                             : 2
+ 5-bit 32-to-1 multiplexer                             : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 10
+ 32-bit adder carry out                                : 1
+ 5-bit adder                                           : 1
+ 5-bit adder carry out                                 : 4
+ 5-bit addsub                                          : 1
+ 5-bit subtractor                                      : 1
+ 6-bit subtractor                                      : 2
+# Registers                                            : 358
+ Flip-Flops                                            : 358
+# Comparators                                          : 2
+ 5-bit comparator equal                                : 2
+# Multiplexers                                         : 13
+ 1-bit 32-to-1 multiplexer                             : 11
+ 1-bit 64-to-1 multiplexer                             : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <queenController> ...
+
+Optimizing unit <queens> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block queenController, actual ratio is 36.
+FlipFlop queenSolver/column_0 has been replicated 17 time(s)
+FlipFlop queenSolver/column_1 has been replicated 3 time(s)
+FlipFlop queenSolver/column_2 has been replicated 1 time(s)
+FlipFlop queenSolver/column_3 has been replicated 1 time(s)
+FlipFlop queenSolver/column_4 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 381
+ Flip-Flops                                            : 381
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : queenController.ngr
+Top Level Output File Name         : queenController
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 17
+
+Cell Usage :
+# BELS                             : 2010
+#      GND                         : 1
+#      INV                         : 3
+#      LUT1                        : 31
+#      LUT2                        : 51
+#      LUT2_D                      : 3
+#      LUT2_L                      : 1
+#      LUT3                        : 766
+#      LUT3_D                      : 11
+#      LUT3_L                      : 2
+#      LUT4                        : 285
+#      LUT4_D                      : 31
+#      LUT4_L                      : 6
+#      MUXCY                       : 51
+#      MUXF5                       : 385
+#      MUXF6                       : 188
+#      MUXF7                       : 94
+#      MUXF8                       : 47
+#      VCC                         : 1
+#      XORCY                       : 53
+# FlipFlops/Latches                : 381
+#      FDCE                        : 301
+#      FDE                         : 80
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 16
+#      IBUF                        : 8
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-4 
+
+ Number of Slices:                      703  out of   1920    36%  
+ Number of Slice Flip Flops:            381  out of   3840     9%  
+ Number of 4 input LUTs:               1190  out of   3840    30%  
+ Number of IOs:                          17
+ Number of bonded IOBs:                  17  out of    173     9%  
+ Number of GCLKs:                         1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+sysClk                             | BUFGP                  | 381   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 301   |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 28.240ns (Maximum Frequency: 35.411MHz)
+   Minimum input arrival time before clock: 27.309ns
+   Maximum output required time after clock: 9.178ns
+   Maximum combinational path delay: 9.753ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'sysClk'
+  Clock period: 28.240ns (frequency: 35.411MHz)
+  Total number of paths / destination ports: 6795867724 / 762
+-------------------------------------------------------------------------
+Delay:               28.240ns (Levels of Logic = 24)
+  Source:            queenSolver/row_1_0 (FF)
+  Destination:       queenSolver/D1used_61 (FF)
+  Source Clock:      sysClk rising
+  Destination Clock: sysClk rising
+
+  Data Path: queenSolver/row_1_0 to queenSolver/D1used_61
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            18   0.720   1.612  queenSolver/row_1_0 (queenSolver/row_1_0)
+     LUT3:I1->O            1   0.551   0.000  queenSolver/mux_10 (queenSolver/mux_10)
+     MUXF5:I0->O           1   0.360   0.000  queenSolver/mux_8_f5 (queenSolver/mux_8_f5)
+     MUXF6:I0->O           1   0.342   0.000  queenSolver/mux_6_f6 (queenSolver/mux_6_f6)
+     MUXF7:I0->O           1   0.342   0.000  queenSolver/mux_4_f7 (queenSolver/mux_4_f7)
+     MUXF8:I0->O          77   0.342   2.137  queenSolver/mux_2_f8 (queenSolver/Madd_next_currow_addsub0000_cy<0>)
+     LUT4:I3->O            1   0.551   0.827  queenSolver/Msub_D2_check_xor<2>11_SW1 (N556)
+     LUT4:I3->O            8   0.551   1.083  queenSolver/Msub_D2_check_xor<2>11 (queenSolver/D2_check<2>)
+     MUXF6:S->O            1   0.649   0.000  queenSolver/Mmux__varindex0002_7_f6 (queenSolver/Mmux__varindex0002_7_f6)
+     MUXF7:I1->O           1   0.342   0.000  queenSolver/Mmux__varindex0002_6_f7 (queenSolver/Mmux__varindex0002_6_f7)
+     MUXF8:I1->O           1   0.342   0.869  queenSolver/Mmux__varindex0002_5_f8 (queenSolver/Mmux__varindex0002_5_f8)
+     LUT4_D:I2->O         18   0.551   1.485  queenSolver/forward_possible70 (queenSolver/forward_possible70)
+     LUT4:I2->O           16   0.551   1.305  queenSolver/next_column<0>1_1 (queenSolver/next_column<0>1)
+     LUT3:I2->O            1   0.551   0.000  queenSolver/mux6_6 (queenSolver/mux6_6)
+     MUXF5:I1->O           1   0.360   0.000  queenSolver/mux6_5_f5 (queenSolver/mux6_5_f5)
+     MUXF6:I1->O           1   0.342   0.000  queenSolver/mux6_4_f6 (queenSolver/mux6_4_f6)
+     MUXF7:I1->O           1   0.342   0.000  queenSolver/mux6_3_f7 (queenSolver/mux6_3_f7)
+     MUXF8:I1->O           8   0.342   1.422  queenSolver/mux6_2_f8 (queenSolver/edit_row_varindex0000<1>)
+     LUT2_D:I0->LO         1   0.551   0.126  queenSolver/edit_row<2>_SW0 (N645)
+     LUT4:I3->O            1   0.551   0.801  queenSolver/edit_row<2> (queenSolver/edit_row<2>)
+     MUXCY:DI->O           1   0.889   0.000  queenSolver/Madd_D1_index_addsub0000_cy<2> (queenSolver/Madd_D1_index_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  queenSolver/Madd_D1_index_addsub0000_cy<3> (queenSolver/Madd_D1_index_addsub0000_cy<3>)
+     XORCY:CI->O          61   0.904   2.045  queenSolver/Madd_D1_index_addsub0000_xor<4> (queenSolver/D1_index_addsub0000<4>)
+     LUT4_D:I3->O          3   0.551   0.933  queenSolver/D1used_63_not00011_SW0 (N582)
+     LUT4:I3->O            1   0.551   0.801  queenSolver/D1used_62_not00011 (queenSolver/D1used_62_not0001)
+     FDCE:CE                   0.602          queenSolver/D1used_62
+    ----------------------------------------
+    Total                     28.240ns (12.794ns logic, 15.446ns route)
+                                       (45.3% logic, 54.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'sysClk'
+  Total number of paths / destination ports: 117715670 / 621
+-------------------------------------------------------------------------
+Offset:              27.309ns (Levels of Logic = 22)
+  Source:            n<0> (PAD)
+  Destination:       queenSolver/D1used_61 (FF)
+  Destination Clock: sysClk rising
+
+  Data Path: n<0> to queenSolver/D1used_61
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             5   0.821   1.260  n_0_IBUF (n_0_IBUF)
+     LUT2:I0->O            1   0.551   0.000  queenSolver/Madd_D2_check_addsub0001_lut<0> (queenSolver/Madd_D2_check_addsub0001_lut<0>)
+     XORCY:LI->O          37   0.622   2.221  queenSolver/Madd_D2_check_addsub0001_xor<0> (queenSolver/D2_check_addsub0001<0>)
+     LUT4:I0->O            1   0.551   0.827  queenSolver/Msub_D2_check_xor<2>11_SW1 (N556)
+     LUT4:I3->O            8   0.551   1.083  queenSolver/Msub_D2_check_xor<2>11 (queenSolver/D2_check<2>)
+     MUXF6:S->O            1   0.649   0.000  queenSolver/Mmux__varindex0002_7_f6 (queenSolver/Mmux__varindex0002_7_f6)
+     MUXF7:I1->O           1   0.342   0.000  queenSolver/Mmux__varindex0002_6_f7 (queenSolver/Mmux__varindex0002_6_f7)
+     MUXF8:I1->O           1   0.342   0.869  queenSolver/Mmux__varindex0002_5_f8 (queenSolver/Mmux__varindex0002_5_f8)
+     LUT4_D:I2->O         18   0.551   1.485  queenSolver/forward_possible70 (queenSolver/forward_possible70)
+     LUT4:I2->O           16   0.551   1.305  queenSolver/next_column<0>1_1 (queenSolver/next_column<0>1)
+     LUT3:I2->O            1   0.551   0.000  queenSolver/mux6_6 (queenSolver/mux6_6)
+     MUXF5:I1->O           1   0.360   0.000  queenSolver/mux6_5_f5 (queenSolver/mux6_5_f5)
+     MUXF6:I1->O           1   0.342   0.000  queenSolver/mux6_4_f6 (queenSolver/mux6_4_f6)
+     MUXF7:I1->O           1   0.342   0.000  queenSolver/mux6_3_f7 (queenSolver/mux6_3_f7)
+     MUXF8:I1->O           8   0.342   1.422  queenSolver/mux6_2_f8 (queenSolver/edit_row_varindex0000<1>)
+     LUT2_D:I0->LO         1   0.551   0.126  queenSolver/edit_row<2>_SW0 (N645)
+     LUT4:I3->O            1   0.551   0.801  queenSolver/edit_row<2> (queenSolver/edit_row<2>)
+     MUXCY:DI->O           1   0.889   0.000  queenSolver/Madd_D1_index_addsub0000_cy<2> (queenSolver/Madd_D1_index_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  queenSolver/Madd_D1_index_addsub0000_cy<3> (queenSolver/Madd_D1_index_addsub0000_cy<3>)
+     XORCY:CI->O          61   0.904   2.045  queenSolver/Madd_D1_index_addsub0000_xor<4> (queenSolver/D1_index_addsub0000<4>)
+     LUT4_D:I3->O          3   0.551   0.933  queenSolver/D1used_63_not00011_SW0 (N582)
+     LUT4:I3->O            1   0.551   0.801  queenSolver/D1used_62_not00011 (queenSolver/D1used_62_not0001)
+     FDCE:CE                   0.602          queenSolver/D1used_62
+    ----------------------------------------
+    Total                     27.309ns (12.131ns logic, 15.178ns route)
+                                       (44.4% logic, 55.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'sysClk'
+  Total number of paths / destination ports: 32 / 8
+-------------------------------------------------------------------------
+Offset:              9.178ns (Levels of Logic = 3)
+  Source:            queenSolver/result_7 (FF)
+  Destination:       outNum<7> (PAD)
+  Source Clock:      sysClk rising
+
+  Data Path: queenSolver/result_7 to outNum<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.720   1.102  queenSolver/result_7 (queenSolver/result_7)
+     LUT3:I1->O            1   0.551   0.000  outNum<7>31_F (N608)
+     MUXF5:I0->O           1   0.360   0.801  outNum<7>31 (outNum_7_OBUF)
+     OBUF:I->O                 5.644          outNum_7_OBUF (outNum<7>)
+    ----------------------------------------
+    Total                      9.178ns (7.275ns logic, 1.903ns route)
+                                       (79.3% logic, 20.7% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 24 / 8
+-------------------------------------------------------------------------
+Delay:               9.753ns (Levels of Logic = 4)
+  Source:            outSel<1> (PAD)
+  Destination:       outNum<7> (PAD)
+
+  Data Path: outSel<1> to outNum<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   0.821   1.576  outSel_1_IBUF (outSel_1_IBUF)
+     LUT3:I0->O            1   0.551   0.000  outNum<7>31_F (N608)
+     MUXF5:I0->O           1   0.360   0.801  outNum<7>31 (outNum_7_OBUF)
+     OBUF:I->O                 5.644          outNum_7_OBUF (outNum<7>)
+    ----------------------------------------
+    Total                      9.753ns (7.376ns logic, 2.377ns route)
+                                       (75.6% logic, 24.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 79.00 secs
+Total CPU time to Xst completion: 78.27 secs
+ 
+--> 
+
+Total memory usage is 146312 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

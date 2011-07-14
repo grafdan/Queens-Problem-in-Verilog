@@ -1,0 +1,2 @@
+verilog work "../queen/queens.v"
+verilog work "queenController.v"

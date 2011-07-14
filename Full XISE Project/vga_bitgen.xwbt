@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Daniel\queenproblem\queen v5 chip 5bit vga\vga.ncd
+OUTFILE=C:\Daniel\queenproblem\queen v5 chip 5bit vga\vga.bit
+FAMILY=Spartan3
+PART=xc3s200-4ft256
+WORKINGDIR=C:\Daniel\queenproblem\queen v5 chip 5bit vga
+LICENSE=WebPack
+USER_INFO=206284811_0_0_075

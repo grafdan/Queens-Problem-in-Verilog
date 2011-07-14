@@ -1,0 +1,4 @@
+verilog work "queens.v"
+verilog work "video_clk.v"
+verilog work "queenController.v"
+verilog work "vga.v"

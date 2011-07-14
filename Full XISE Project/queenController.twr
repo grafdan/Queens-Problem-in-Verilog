@@ -1,0 +1,109 @@
+--------------------------------------------------------------------------------
+Release 13.1 Trace  (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\13.1\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 4 -n
+3 -fastpaths -xml queenController.twx queenController.ncd -o
+queenController.twr queenController.pcf -ucf constraints.ucf
+
+Design file:              queenController.ncd
+Physical constraint file: queenController.pcf
+Device,package,speed:     xc3s200,ft256,-4 (PRODUCTION 1.39 2011-02-03)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock sysClk
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+n<0>        |   23.017(R)|   -0.625(R)|sysClk_BUFGP      |   0.000|
+n<1>        |   24.013(R)|   -0.112(R)|sysClk_BUFGP      |   0.000|
+n<2>        |   21.333(R)|   -1.581(R)|sysClk_BUFGP      |   0.000|
+n<3>        |   21.801(R)|   -1.563(R)|sysClk_BUFGP      |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock sysClk to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+outNum<0>   |   10.573(R)|sysClk_BUFGP      |   0.000|
+outNum<1>   |   11.323(R)|sysClk_BUFGP      |   0.000|
+outNum<2>   |   10.418(R)|sysClk_BUFGP      |   0.000|
+outNum<3>   |   11.618(R)|sysClk_BUFGP      |   0.000|
+outNum<4>   |   11.363(R)|sysClk_BUFGP      |   0.000|
+outNum<5>   |   12.102(R)|sysClk_BUFGP      |   0.000|
+outNum<6>   |   12.192(R)|sysClk_BUFGP      |   0.000|
+outNum<7>   |   12.249(R)|sysClk_BUFGP      |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock sysClk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+sysClk         |   24.121|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+outSel<0>      |outNum<0>      |    9.492|
+outSel<0>      |outNum<1>      |   10.272|
+outSel<0>      |outNum<2>      |   10.187|
+outSel<0>      |outNum<3>      |   11.029|
+outSel<0>      |outNum<4>      |   10.520|
+outSel<0>      |outNum<5>      |   10.746|
+outSel<0>      |outNum<6>      |   10.696|
+outSel<0>      |outNum<7>      |   11.211|
+outSel<1>      |outNum<0>      |    8.993|
+outSel<1>      |outNum<1>      |   10.341|
+outSel<1>      |outNum<2>      |    9.116|
+outSel<1>      |outNum<3>      |    9.958|
+outSel<1>      |outNum<4>      |   10.021|
+outSel<1>      |outNum<5>      |   10.696|
+outSel<1>      |outNum<6>      |   10.180|
+outSel<1>      |outNum<7>      |   10.837|
+---------------+---------------+---------+
+
+
+Analysis completed Sun May 15 15:27:26 2011 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 78 MB
+
+
+

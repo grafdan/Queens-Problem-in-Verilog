@@ -1,0 +1,4 @@
+MO video_clk NULL video_clk.v vlg2C/video__clk.bin 1305482475
+MO vga NULL vga.v vlg6A/vga.bin 1305482476
+MO queens NULL queens.v vlg51/queens.bin 1305482475
+MO queenController NULL queenController.v vlg4A/queen_controller.bin 1305482476

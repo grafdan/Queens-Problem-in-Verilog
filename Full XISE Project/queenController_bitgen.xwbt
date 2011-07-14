@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Daniel\queenproblem\queens\queenController.ncd
+OUTFILE=C:\Daniel\queenproblem\queens\queenController.bit
+FAMILY=Spartan3
+PART=xc3s200-4ft256
+WORKINGDIR=C:\Daniel\queenproblem\queens
+LICENSE=WebPack
+USER_INFO=206284811_0_0_075
